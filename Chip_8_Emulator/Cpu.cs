@@ -9,7 +9,6 @@ namespace Chip_8_Emulator
     public class Cpu
     {
         InstructionFabric _fabric;
-
         public byte[] Memory { get; set; } = new byte[4096];
         public ushort PC { get; set; } = 0x200;
         public byte[] registers { get; set; } = new byte[16];
@@ -32,7 +31,7 @@ namespace Chip_8_Emulator
         }
         public void LoadROM()
         {           
-            new ROM().Load(Memory);
+            new ROM().Load(this);
         }
         private ushort GetOP(ushort PC)
         {
